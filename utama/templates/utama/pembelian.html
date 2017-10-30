@@ -1,0 +1,39 @@
+{% extends 'utama/base.html' %}
+
+{% block judul %}Pembelian{% endblock %}
+
+{% block isi %}
+	<ol class="breadcrumb">
+		<li><a href="{% url 'beranda' %}">Beranda</a></li>
+		<li class="active">Pembelian</li>
+	</ol>
+
+	<form class="form-horizontal" action="{% url 'form_action' %}" method="POST">{% csrf_token %}
+	  <div class="form-group">
+	    <label for="InputName1" class="col-sm-2 control-label">Nama</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="InputName1" placeholder="Nama">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label for="InputAlamat1" class="col-sm-2 control-label">Alamat</label>
+	    <div class="col-sm-9">
+	      <textarea class="form-control" name="" id="InputAlamat1" placeholder="Alamat" rows="3"></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox"> Remember me
+	        </label>
+	      </div>
+	    </div>
+	  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

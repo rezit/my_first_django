@@ -1,0 +1,26 @@
+{% extends 'utama/base.html' %}
+{% load staticfiles %}
+{% block judul %}Qur'an Fasya{% endblock %}
+
+{% block isi %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'beranda' %}">Beranda</a></li>
+  <li><a href="{% url 'quran' %}">Qur'an</a></li>
+  <li class="active">Fasya</li>
+</ol>
+<div class="row" style="display: flex; flex-wrap: wrap;">
+    {% for quranfasya in fasya %}
+    	<div class="col-sm-6 col-md-3">		
+     			<div class="thumbnail">
+       			<img src="{{ quranfasya.gambar.url }}" alt="...">
+       			<div class="caption">
+         				<h3>{{ quranfasya.nama }}</h3>
+                <h4>Rp {{ quranfasya.harga }}</h4>
+                <p>kode : {{ quranfasya.kode }}</p>
+         				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn 	btn-default" role="button">Button</a></p>
+         		</div>
+         	</div>     		
+     	</div>
+    {% endfor %}
+</div>
+{% endblock %}
